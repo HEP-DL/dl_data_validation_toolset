@@ -26,6 +26,9 @@ setup(
     entry_points={
         'console_scripts': [
             'dl_data_validation_toolset=dl_data_validation_toolset.cli:main'
+        ],
+        'dl_data_validation_toolset.validation_tests' : [
+            ''
         ]
     },
     include_package_data=True,
