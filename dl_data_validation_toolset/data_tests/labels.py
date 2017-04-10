@@ -16,8 +16,8 @@ class LabelTests(base_test.BaseTest):
         label_accumulator = np.ndarray(shape = (len(labels[0])))
         for labelvec in labels:
             if np.max(labelvec)==0:
-                print "  WARNING: Found null vector"
+                print("  WARNING: Found null vector")
             label_accumulator+=labelvec
         if np.max(label_accumulator) == 0 or np.min(label_accumulator) == 0:
-            print "Warning: zeroed columns in label vector"
+            print("Warning: zeroed columns in label vector")
         #print label_accumulato
