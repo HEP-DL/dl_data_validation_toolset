@@ -8,15 +8,15 @@ python:
   - "3.6-dev" # 3.6 development branch
   - "3.7-dev" # 3.7 development branch
   - "nightly" # currently points to 3.7-dev
-addons:
-  apt:
-    sources:
-    - libblas-dev
-    - liblapack-dev
-    - gfortran
-    - libatlas-base-dev
-
+before_install:
+  - pip install numpy
+  - pip install python-dateutil
+  - pip install pytz
+  - pip install scipy
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libatlas-dev libatlas-base-dev liblapack-dev gfortran
 # command to install dependencies
 install: "pip install -r requirements_dev.txt"
 # command to run tests
 script: pytest
+
