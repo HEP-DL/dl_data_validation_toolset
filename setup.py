@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
+from setuptools import setup, find_packages
 from pip.req import parse_requirements
+import pip
 
-install_reqs = parse_requirements("requirements.txt")
-reqs = [str(ir.req) for ir in install_reqs]
 
-test_reqs = parse_requirements("requirements.txt")
-test_reqs = [str(ir.req) for ir in test_reqs]
+install_reqs = reqs = [str(ir.req) for ir in parse_requirements('requirements.txt',
+    session=pip.download.PipSession())]
+dev_reqs = [str(ir.req) for ir in parse_requirements('requirements_dev.txt',
+    session=pip.download.PipSession())]
 
 setup(
     name='dl_data_validation_toolset',
@@ -18,14 +20,13 @@ setup(
     author="Kevin Wierman",
     author_email='kwierman@gmail.com',
     url='https://github.com/kwierman/dl_data_validation_toolset',
-    packages=[
-        'dl_data_validation_toolset',
-    ],
+    packages=find_packages(),
     package_dir={'dl_data_validation_toolset':
                  'dl_data_validation_toolset'},
     entry_points={
         'console_scripts': [
-            'dl_data_validation_toolset=dl_data_validation_toolset.cli:main'
+            'dl_data_validation_toolset=dl_data_validation_toolset.cli:main',
+            'single_dl_data_validate=dl_data_validation_toolset.cli:validate_single_dl_file'
         ],
     },
     include_package_data=True,
@@ -47,5 +48,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=test_reqs
+    tests_require=dev_reqs
 )
