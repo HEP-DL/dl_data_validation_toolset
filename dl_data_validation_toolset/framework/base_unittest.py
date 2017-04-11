@@ -3,7 +3,6 @@ from mock import patch
 import logging
 import sys
 
-
 class BaseTestCase(unittest.TestCase):
 
   def setUp(self):

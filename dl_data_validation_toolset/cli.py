@@ -16,7 +16,7 @@ def main(files=None):
 def validate_single_dl_file(input_file):
   for test_case in BaseTest.__subclasses__():
     logging.info(test_case)
-    test_case(input_file).go()
+    test_case(input_file).get_results()
 
 if __name__ == "__main__":
     main()
