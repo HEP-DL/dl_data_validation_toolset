@@ -4,7 +4,7 @@ import click
 import logging
 import sys
 from dl_data_validation_toolset import data_tests
-from framework.base_test import BaseTest
+from dl_data_validation_toolset.framework.base_test import BaseTest
 
 
 @click.command()
