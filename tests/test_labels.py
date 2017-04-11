@@ -7,6 +7,3 @@ class TestDl_CLI(base_unittest.BaseTestCase):
     label_test = LabelTests('somefile.h5')
     self.mock_file['label/type']=[[1,1,1,1],[1,1,1,1],[1,1,1,1]]
     label_test.go()
-
-
-    assert(0)
