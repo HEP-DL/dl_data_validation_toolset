@@ -1,5 +1,3 @@
-#import h5py
-#import os
 import numpy as np
 import logging
 from dl_data_validation_toolset.framework import base_test

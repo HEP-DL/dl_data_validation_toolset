@@ -11,6 +11,7 @@ from dl_data_validation_toolset.framework.base_test import BaseTest
 def main(files=None):
     logging.basicConfig(level=logging.INFO)
 
+
 @click.command()
 @click.argument('input_file', nargs=1)
 def validate_single_dl_file(input_file):
@@ -19,6 +20,22 @@ def validate_single_dl_file(input_file):
     logging.info("Testing: {}".format(test_case))
     logging.info(test_case)
     test_case(input_file).get_results()
+
+
+@click.command()
+@click.option('--config',default=None, type=click.Path())
+def validate_dl_data(config):
+  """
+    get the config and 
+  """
+
+
+  logging.basicConfig(level=logging.DEBUG)
+  if config is None:
+    pass
+  else:
+    pass
+
 
 if __name__ == "__main__":
     main()
