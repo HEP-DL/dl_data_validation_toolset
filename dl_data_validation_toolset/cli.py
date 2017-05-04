@@ -2,35 +2,8 @@
 
 import click
 import logging
-from dl_data_validation_toolset.framework.base_test import BaseTest
-
-
-@click.command()
-def main(files=None):
-    logging.basicConfig(level=logging.INFO)
-
-
-@click.command()
-@click.argument('input_file', nargs=1)
-def validate_single_dl_file(input_file):
-  logging.basicConfig(level=logging.DEBUG)
-  for test_case in BaseTest.__subclasses__():
-    logging.info("Testing: {}".format(test_case))
-    logging.info(test_case)
-    test_case(input_file).get_results()
-
-
-@click.command()
-@click.option('--config', default=None, type=click.Path())
-def validate_dl_data(config):
-  """
-    get the config and
-  """
-  logging.basicConfig(level=logging.DEBUG)
-  if config is None:
-    pass
-  else:
-    pass
+from dl_data_validation_toolset.framework.configuration import Configuration
+from dl_data_validation_toolset.framework.report_gen import ReportGenerator
 
 
 @click.command()
@@ -88,5 +61,15 @@ def print_dl_images(n, scale, thresh, input_file):
       logging.warning(e)
 
 
-if __name__ == "__main__":
-    main()
+@click.command()
+@click.option('--config', default=None, type=click.Path())
+def generate_report(config):
+  logging.basicConfig(level=logging.DEBUG)
+  configuration = None
+  if config is None:
+    configuration = Configuration.default()
+  else:
+    configuration = Configuration(config)
+
+  report = ReportGenerator(configuration)
+  report.make_index_page()

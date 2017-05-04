@@ -8,7 +8,7 @@ import logging
 class ReportGenerator(object):
   logger = logging.getLogger()
 
-  def __init__(self):
+  def __init__(self, config):
     self.template_directory = os.path.dirname(templates.__file__)
     self.temp_dir = tempfile.mkdtemp()
 

@@ -25,9 +25,8 @@ setup(
                  'dl_data_validation_toolset'},
     entry_points={
         'console_scripts': [
-            'dl_data_validation_toolset=dl_data_validation_toolset.cli:main',
-            'single_dl_data_validate=dl_data_validation_toolset.cli:validate_single_dl_file',
-            'print_dl_images=dl_data_validation_toolset.cli:print_dl_images'
+            'print_dl_images=dl_data_validation_toolset.cli:print_dl_images',
+            'generate_report=dl_data_validation_toolset.cli:generate_report'
         ],
     },
     include_package_data=True,
