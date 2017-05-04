@@ -1,5 +1,9 @@
 [flake8]
-ignore=E111
+
+ignore= 
+  E111 , 
+  E114
+
 # For the most part, exclude files that are not part of the 
 # distribution
 exclude =
