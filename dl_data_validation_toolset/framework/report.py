@@ -7,9 +7,8 @@ class FileReport(object):
     # all files are valid until proven broken
     self.valid = True
     # starts with no reports
-    self.reports=[]
+    self.reports = []
 
   @property
   def parent(self):
     os.path.dirname(self.file)
-

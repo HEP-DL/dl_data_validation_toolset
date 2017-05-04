@@ -6,7 +6,7 @@ from dl_data_validation_toolset.framework.configuration import Configuration
 from dl_data_validation_toolset.framework.report_gen import ReportGenerator
 from dl_data_validation_toolset.framework.scanner import Scanner
 from dl_data_validation_toolset.framework.base_test import BaseTest
-from dl_data_validation_toolset.data_tests import *
+from dl_data_validation_toolset import data_tests
 from dl_data_validation_toolset.framework.report import FileReport
 
 
@@ -70,6 +70,7 @@ def print_dl_images(n, scale, thresh, input_file):
 def generate_report(config):
   logging.basicConfig(level=logging.DEBUG)
   logging.info("Starting")
+  logging.info("Tests on file: {}".format(data_tests.__all__))
   configuration = None
   if config is None:
     configuration = Configuration.default()
@@ -80,7 +81,7 @@ def generate_report(config):
   logging.debug(scan_results)
 
   # Now that we've located the files and start a report, let's
-  # create some tests and 
+  # create some tests and
   file_reports = []
   for file in scan_results[0]:
     report = FileReport(file)
@@ -89,6 +90,10 @@ def generate_report(config):
       test_case(file).validate(report)
     file_reports.append(report)
 
-  report = ReportGenerator(configuration.results_path)
+  # TODO: make this more comprehensive
+  group_reports = scan_results[1]
+
+  rep_gen = ReportGenerator(configuration.results_path)
+  rep_gen.generate(file_reports, group_reports)
 
   logging.info("Finished")

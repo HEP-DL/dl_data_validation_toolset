@@ -1,4 +1,4 @@
 """
-  Contains all of the 
+  Contains all of the
 """
-__all__=['consistency','existence','labels','rawdigits','wires']
+__all__ = ['consistency', 'existence', 'labels', 'rawdigits', 'wires']

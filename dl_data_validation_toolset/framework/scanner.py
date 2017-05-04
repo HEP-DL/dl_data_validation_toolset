@@ -1,11 +1,13 @@
 import logging
 import os
 
+
 class Group:
   def __init__(self, file, base_dir, name):
     self.group = name
-    self.files = [file,]
+    self.files = [file, ]
     self.dir = base_dir
+
 
 class Scanner(object):
   logger = logging.getLogger('scanner')
@@ -24,8 +26,8 @@ class Scanner(object):
       Returns a list of files to be validated/classified and
       a list of file groups
     """
-    file_output=[]
-    group_output=[]
+    file_output = []
+    group_output = []
     for base_dir in self.base_dirs:
       self.logger.info("Entering: {}".format(base_dir))
       files = os.listdir(base_dir)
@@ -42,6 +44,6 @@ class Scanner(object):
               group_exists = True
               group.files.append(file)
           if not group_exists:
-            group_output.append(self.create_new_group(file, base_dir, 
+            group_output.append(self.create_new_group(file, base_dir,
                                                       file_group))
     return (file_output, group_output)
