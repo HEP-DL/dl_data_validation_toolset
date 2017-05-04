@@ -13,6 +13,15 @@ class BaseTest(object):
   def _tests_(self):
     return [att for att in dir(self) if att.startswith('test')]
 
+  def validate(self, report):
+    for test in self._tests_:
+      try:
+        test_result = getattr(self, test)()
+        report.reports.append(test_result)
+      except Exception as e:
+        report.valid = False
+        report.reports.append({'failure': str(e)})
+
   def get_results(self):
     results = {}
     for test in self._tests_:

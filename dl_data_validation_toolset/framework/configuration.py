@@ -20,6 +20,7 @@ class Configuration(object):
   @staticmethod
   def default():
     c = Configuration(None)
+    Configuration.logger.info("Using default configuration")
     c.scan_paths = [os.path.join(os.getcwd(), 'data')]
     c.results_path = os.path.join(os.getcwd(), 'results')
     return c
