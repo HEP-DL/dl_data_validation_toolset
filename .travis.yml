@@ -18,4 +18,4 @@ before_install:
 # command to install dependencies
 install: "pip install -r requirements_dev.txt"
 # command to run tests
-script: pytest
+script: make test

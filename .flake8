@@ -1,0 +1,7 @@
+[flake8]
+ignore=E111
+# For the most part, exclude files that are not part of the 
+# distribution
+exclude =
+  conf.py , 
+  setup.py

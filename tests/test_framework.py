@@ -2,8 +2,6 @@
   Tests classes in dl_data_validation_toolset.framework.base_test
 """
 
-from click.testing import CliRunner
-from dl_data_validation_toolset import cli
 from dl_data_validation_toolset.framework import base_unittest
 from dl_data_validation_toolset.framework.base_test import BaseTest
 
@@ -32,9 +30,9 @@ class Test_BaseTest(base_unittest.BaseTestCase):
         Tests whether or not the class specific tests can be gathered
       """
       my_data_test = MyTestCase("whatever.h5")
-      assert(len(my_data_test._tests_) ==2 )
-      assert("test_false" in my_data_test._tests_ )
-      assert("test_true" in my_data_test._tests_ )
+      assert(len(my_data_test._tests_) == 2)
+      assert("test_false" in my_data_test._tests_)
+      assert("test_true" in my_data_test._tests_)
 
     def test_valid_result(self):
       """
@@ -54,4 +52,3 @@ class Test_BaseTest(base_unittest.BaseTestCase):
       assert('test_false' in results)
       assert(not results['test_false']['passed'])
       assert('assert' in results['test_false']['result'])
-

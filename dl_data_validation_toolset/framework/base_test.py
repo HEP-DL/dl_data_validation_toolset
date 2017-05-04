@@ -1,6 +1,7 @@
 import h5py
 import abc
 
+
 class BaseTest(object):
 
   __metaclass__ = abc.ABCMeta
@@ -15,12 +16,12 @@ class BaseTest(object):
   def get_results(self):
     results = {}
     for test in self._tests_:
-      test_result={}
+      test_result = {}
       try:
-        test_result['result']=getattr(self, test)()
+        test_result['result'] = getattr(self, test)()
         test_result['passed'] = True
       except Exception as e:
         test_result['passed'] = False
         test_result['result'] = str(e)
       results[test] = test_result
-    return results    
+    return results

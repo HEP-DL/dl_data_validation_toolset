@@ -7,13 +7,15 @@ class TestDl_Consistency(base_unittest.BaseTestCase):
 
   def test_basic_consistency(self):
     label_test = ConsistencyTests('somefile.h5')
+
     def getitem(name):
       if 'label' in name:
-        return [[1,1,1,1],[1,1,1,1],[1,1,1,1]]
+        return [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]
       elif 'wire' in name:
-        return [[],[],[]]
+        return [[], [], []]
       else:
-        return [[],[],[]]
+        return [[], [], []]
+
     label_test._file.__getitem__.side_effect = getitem
     results = label_test.get_results()
     logging.debug(results)

@@ -138,7 +138,6 @@ latex_documents = [
      u'Kevin Wierman', 'manual'),
 ]
 
-
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
@@ -147,7 +146,6 @@ man_pages = [
     (master_doc, 'dldatavalidationtoolset', u'DL Data Validation Toolset Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output -------------------------------------------
 
@@ -159,9 +157,6 @@ texinfo_documents = [
      author, 'DLDataValidationToolset', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}

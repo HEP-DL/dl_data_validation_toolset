@@ -16,7 +16,7 @@ class TestDl_CLI(base_unittest.BaseTestCase):
       :note: This test will fail if any of the other tests also fail.
     """
     runner = CliRunner()
-    result = runner.invoke(cli.validate_single_dl_file,["myfile.h5"])
+    result = runner.invoke(cli.validate_single_dl_file, ["myfile.h5"])
     assert result.exit_code == 0
 
   def test_cli_help(self):
@@ -30,7 +30,7 @@ class TestDl_CLI(base_unittest.BaseTestCase):
 
   def test_subclass_register(self):
     """
-      Tests that the CLI is able to successfully find the 
+      Tests that the CLI is able to successfully find the
       validation tests.
     """
-    assert(len(BaseTest.__subclasses__())>0)
+    assert(len(BaseTest.__subclasses__()) > 0)

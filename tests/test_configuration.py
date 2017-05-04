@@ -4,14 +4,15 @@ import logging
 import sys
 import os
 
+
 class ConfigurationTests(unittest.TestCase):
 
   def setUp(self):
     """
-      Monkeypatches the file functionality out so that we don't 
+      Monkeypatches the file functionality out so that we don't
       run on real files during unit tests.
     """
-    logging.basicConfig( stream=sys.stderr, level=logging.DEBUG )
+    logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
   def test_can_read_example(self):
     logging.info(os.getcwd())
@@ -23,5 +24,5 @@ class ConfigurationTests(unittest.TestCase):
   def test_defaults(self):
     c = Configuration.default()
     assert('data' in c.scan_paths[0])
-    assert(len(c.scan_paths)==1)
+    assert(len(c.scan_paths) == 1)
     assert('results' in c.results_path)
