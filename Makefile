@@ -18,7 +18,10 @@ clean-pyc:
 lint:
 	flake8 dl_data_validation_toolset tests
 
-test:
+flake: 
+	flake8 .
+
+test: flake
 	pytest
 
 docs:

@@ -6,7 +6,7 @@ The DL Data Validation Toolset is a framework built around a series of tools mea
 Goal
 ====
 
-We
+The goal of this project is to create comprehensive reports on data produced external to the deep learning framework. Reports created should
 
 
 .. toctree::
@@ -15,6 +15,7 @@ We
    
    installation
    usage
+   development
    modules
 
 
