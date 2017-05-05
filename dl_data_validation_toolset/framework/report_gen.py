@@ -71,7 +71,7 @@ class ReportGenerator(object):
   def add_image_to_manifest(self, file_report):
     if self.image_dir is None:
       self.image_dir = os.path.join(self.temp_dir, 'files/images')
-    os.mkdir(self.image_dir)
+      os.mkdir(self.image_dir)
     input_file = h5py.File(file_report.file, 'r')
     wires = input_file['image/wires']
     n = 1
