@@ -8,17 +8,17 @@ class ConsistencyTests(base_test.BaseTest):
   def test_consistent_labels_wires(self):
     labels = self._file['label/type']
     wires = self._file['image/wires']
-    assert(len(labels) == len(wires))
-    return {'wires': wires, 'labels': labels}
+    valid = int(len(labels) == len(wires)) + 1
+    return {'wires': len(wires), 'labels': len(labels)}, valid
 
   def test_consistent_labels_rawdigits(self):
     labels = self._file['label/type']
     rawdigits = self._file['image/rawdigits']
-    assert(len(labels) == len(rawdigits))
-    return {'rawdigits': rawdigits, 'labels': labels}
+    valid = int(len(labels) == len(rawdigits)) + 1
+    return {'rawdigits': len(rawdigits), 'labels': len(labels)}, valid
 
   def test_consistent_digits_wires(self):
     digits = self._file['image/rawdigits']
     wires = self._file['image/wires']
-    assert(len(digits) == len(wires))
-    return {'wires': wires, 'rawdigits': digits}
+    valid = int(len(digits) == len(wires)) + 1
+    return {'wires': len(wires), 'rawdigits': len(digits)}, valid

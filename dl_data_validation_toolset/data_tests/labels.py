@@ -9,20 +9,22 @@ class LabelTests(base_test.BaseTest):
     def test_label_exists(self):
         labels = self._file['label/type']
         logging.debug("Labels: {}".format(labels))
-        assert(labels is not None)
-        assert(len(labels) > 0)
-        logging.debug("Number of label vectors: {}".format(len(labels)))
-        return labels
+        valid = int(labels is not None)
+        valid += int(len(labels))
+        return {'N Labels': len(labels)}, valid
 
     def test_nonzero_labels(self):
         labels = self._file['label/type']
         null_vectors = 0
+        valid = 2
         for labelvec in labels:
-            self.logger.debug(labelvec)
             if np.max(labelvec) == 0:
                 self.logger.debug("Found null vector: {}".format(labelvec))
+                valid = 1
                 null_vectors += 1
-        return {'null_vectors': null_vectors}
+        if null_vectors == len(labels):
+            valid = 0
+        return {'null_vectors': null_vectors}, valid
 
     def test_label_diversity(self):
         labels = self._file['label/type']
@@ -33,4 +35,4 @@ class LabelTests(base_test.BaseTest):
         result['valid'] = np.max(label_accumulator) == 0
         result['valid'] = result['valid'] or np.min(label_accumulator) == 0
         result['labels'] = label_accumulator
-        return result
+        return result, 2

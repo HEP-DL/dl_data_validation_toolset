@@ -1,4 +1,10 @@
 """
-  Contains all of the
+  Definitions of the unit tests to perform on data
 """
-__all__ = ['consistency', 'existence', 'labels', 'rawdigits', 'wires']
+__test_names__ = ['consistency', 'labels', 'rawdigits', 'wires']
+
+
+def initialize():
+  global __test_names__
+  for i in __test_names__:
+    __import__('dl_data_validation_toolset.data_tests.' + i)

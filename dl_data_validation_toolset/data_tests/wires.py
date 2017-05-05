@@ -6,9 +6,7 @@ class WiresTests(base_test.BaseTest):
     logger = logging.getLogger('data_tests.wires')
 
     def test_digits_exist(self):
-        wiers = self._file['images/wires']
-        logging.debug("Labels: {}".format(wiers))
-        assert(wiers is not None)
-        assert(len(wiers) > 0)
-        logging.debug("Number of label vectors: {}".format(len(wiers)))
-        return wiers
+        wiers = self._file['image/wires']
+        valid = int(wiers is not None)
+        valid += int(len(wiers) > 0)
+        return {'N Wires': len(wiers)}, valid

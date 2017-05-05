@@ -4,6 +4,7 @@
 
 from dl_data_validation_toolset.framework import base_unittest
 from dl_data_validation_toolset.framework.base_test import BaseTest
+from dl_data_validation_toolset.framework.report import FileReport
 
 
 class MyTestCase(BaseTest):
@@ -39,16 +40,17 @@ class Test_BaseTest(base_unittest.BaseTestCase):
         Tests if  passing unit test gets gathered and passed
       """
       my_data_test = MyTestCase("whatever.h5")
-      results = my_data_test.get_results()
-      assert('test_true' in results)
-      assert(results['test_true']['passed'])
+      report = FileReport("test_report")
+      my_data_test.validate(report)
+      assert(not report.valid)
+      assert(report.reports[0].status == 0)
 
     def test_invalid_result(self):
       """
         Ensures that invalid cases are handled appropriately
       """
       my_data_test = MyTestCase("whatever.h5")
-      results = my_data_test.get_results()
-      assert('test_false' in results)
-      assert(not results['test_false']['passed'])
-      assert('assert' in results['test_false']['result'])
+      report = FileReport("test_report")
+      my_data_test.validate(report)
+      assert(not report.valid)
+      assert(report.reports[1].status == 0)

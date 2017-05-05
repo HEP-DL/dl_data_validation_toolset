@@ -6,9 +6,7 @@ class DigitsTests(base_test.BaseTest):
     logger = logging.getLogger('data_tests.digits')
 
     def test_digits_exist(self):
-        labels = self._file['label/type']
-        logging.debug("Labels: {}".format(labels))
-        assert(labels is not None)
-        assert(len(labels) > 0)
-        logging.debug("Number of label vectors: {}".format(len(labels)))
-        return labels
+        digits = self._file['image/rawdigits']
+        valid = int(digits is not None)
+        valid += int(len(digits) > 0)
+        return {'N Digits': len(digits)}, valid

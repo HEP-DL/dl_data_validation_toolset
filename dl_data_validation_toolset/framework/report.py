@@ -1,16 +1,19 @@
 import os
 
 
-class TestReport(object):
+class IndividualReport(object):
   """
+    2+ Better than good
     2= Good
     1= Warning
-    0= BAD
+    0= Invalidates
   """
 
-  def __init__(self,name):
+  def __init__(self, name, status, fields):
     self.name = name
-    self.status=2
+    self.status = status
+    self.fields = fields
+
 
 class FileReport(object):
   def __init__(self, file):
@@ -19,6 +22,7 @@ class FileReport(object):
     self.valid = True
     # starts with no reports
     self.reports = []
+    self.images = []
 
   @property
   def filename(self):

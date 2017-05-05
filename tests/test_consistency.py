@@ -1,6 +1,6 @@
 from dl_data_validation_toolset.framework import base_unittest
 from dl_data_validation_toolset.data_tests.consistency import ConsistencyTests
-import logging
+from dl_data_validation_toolset.framework.report import FileReport
 
 
 class TestDl_Consistency(base_unittest.BaseTestCase):
@@ -17,10 +17,5 @@ class TestDl_Consistency(base_unittest.BaseTestCase):
         return [[], [], []]
 
     label_test._file.__getitem__.side_effect = getitem
-    results = label_test.get_results()
-    logging.debug(results)
-    assert(results['test_consistent_labels_wires'] is not None)
-
-    assert(results['test_consistent_labels_wires']['passed'])
-    assert(results['test_consistent_labels_rawdigits']['passed'])
-    assert(results['test_consistent_digits_wires']['passed'])
+    report = FileReport("myfile")
+    label_test.validate(report)

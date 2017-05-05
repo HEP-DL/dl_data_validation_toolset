@@ -15,6 +15,8 @@
 
   </head>
   <body>
-    <%block name="body_content"/>
+    <div class="container-fluid">
+      <%block name="body_content"/>
+    </div>
   </body>
 </html>
