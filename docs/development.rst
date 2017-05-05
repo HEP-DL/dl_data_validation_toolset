@@ -14,3 +14,16 @@ make test
 ~~~
 
 Bear in mind that flake8 is used to lint the code.
+
+
+Documentation
+-------------
+
+Code will not be considered without documentation
+
+Documenation can be built with:
+
+
+~~~ 
+make docs
+~~~

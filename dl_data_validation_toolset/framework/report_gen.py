@@ -96,7 +96,7 @@ class ReportGenerator(object):
       output_file = os.path.join(self.image_dir,
                                  'wires_{}.png'.format(self.n_images))
       imsave(output_file, buff)
-      logging.info('wires_{}.png created'.format(0))
+      logging.info('wires_{}.png created'.format(self.n_images))
       file_report.images.append('images/wires_{}.png'.format(self.n_images))
     except Exception as e:
       logging.warning(e)
