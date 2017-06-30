@@ -10,6 +10,7 @@ class BaseTest(object):
   logger = logging.getLogger("test")
 
   def __init__(self, filename):
+    self.logger.info("Scanning file: {}".format(filename))
     self._file = h5py.File(filename, 'r')
 
   @property
