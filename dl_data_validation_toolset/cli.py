@@ -45,7 +45,6 @@ def print_dl_images(n, scale, thresh, input_file):
       logging.info('wires_{}.png created'.format(index))
     except Exception as e:
       logging.warning(e)
-    return
     try:
       image = rawdigits[index]
       logging.info("Image: min: {}, max: {}".format(np.min(image),
