@@ -10,4 +10,4 @@ h5py==2.7.0
 flake8==3.3.0
 configparser==3.5.0
 PyYAML==3.12
-Mako==1.0.6
+Mako==1.0.7
