@@ -9,6 +9,7 @@ from scipy.stats import threshold
 import numpy as np
 import tarfile
 import time
+import shutil
 
 
 class ReportGenerator(object):
@@ -110,3 +111,7 @@ class ReportGenerator(object):
     tar = tarfile.open(output_name, "w")
     tar.add(self.temp_dir)
     tar.close()
+
+  def move_to_results(self):
+    self.logger.info("Moving to results dir")
+    shutil.move(self.temp_dir, self.results_path)

@@ -96,5 +96,8 @@ def generate_report(config):
 
   rep_gen = ReportGenerator(configuration.results_path)
   rep_gen.generate(file_reports, group_reports)
-  rep_gen.tarball()
+  if configuration.tar:
+    rep_gen.tarball()
+  else:
+    rep_gen.move_to_results()
   logging.info("Finished")

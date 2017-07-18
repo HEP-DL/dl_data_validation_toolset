@@ -1,4 +1,4 @@
-.PHONY: clean  clean-build clean-pyc docs help
+.PHONY: clean clean-build clean-pyc test docs install uninstall help
 
 clean: clean-build clean-pyc
 
@@ -15,13 +15,7 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-lint:
-	flake8 dl_data_validation_toolset tests
-
-flake: 
-	flake8 .
-
-test: flake
+test: clean
 	pytest
 
 docs:

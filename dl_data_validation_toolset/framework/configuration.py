@@ -14,6 +14,7 @@ class Configuration(object):
       self.results_path = os.path.join(os.getcwd(),
                                        self.data['results_path'])
       self.results_path = os.path.abspath(self.results_path)
+      self.tar = bool(self.data['tar'])
       self.logger.info("Loaded Config")
       self.logger.info(self.data)
 
@@ -23,4 +24,5 @@ class Configuration(object):
     Configuration.logger.info("Using default configuration")
     c.scan_paths = [os.path.join(os.getcwd(), 'data')]
     c.results_path = os.path.join(os.getcwd(), 'results')
+    c.tar = True
     return c
