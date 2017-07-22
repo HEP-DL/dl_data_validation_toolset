@@ -10,6 +10,7 @@ import numpy as np
 import tarfile
 import time
 import shutil
+import glob
 
 
 class ReportGenerator(object):
@@ -114,4 +115,5 @@ class ReportGenerator(object):
 
   def move_to_results(self):
     self.logger.info("Moving to results dir")
-    shutil.move(self.temp_dir, self.results_path)
+    for _item in glob.glob(self.temp_dir+"/*"):
+      shutil.move(_item, self.results_path)
