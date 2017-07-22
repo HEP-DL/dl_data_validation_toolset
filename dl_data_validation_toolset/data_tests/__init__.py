@@ -1,7 +1,7 @@
 """
   Definitions of the unit tests to perform on data
 """
-__test_names__ = ['consistency', 'labels', 'rawdigits', 'wires']
+__test_names__ = ['consistency', 'labels', 'wires']
 
 
 def initialize():
