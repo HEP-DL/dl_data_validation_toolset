@@ -115,5 +115,12 @@ class ReportGenerator(object):
 
   def move_to_results(self):
     self.logger.info("Moving to results dir")
+    for _item.in glob.glob(self.results_path+"/*"):
+      if _item.startwith("."):
+        continue
+      if os.isdir(os.path.join(self.results_path, _item)):
+        shutil.rmtree(os.path.join(self.results_path, _item))
+      else:
+        os.remove(os.path.join(self.results_path, _item))
     for _item in glob.glob(self.temp_dir+"/*"):
       shutil.move(_item, self.results_path)
