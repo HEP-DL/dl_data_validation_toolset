@@ -115,7 +115,7 @@ class ReportGenerator(object):
 
   def move_to_results(self):
     self.logger.info("Moving to results dir")
-    for _item.in glob.glob(self.results_path+"/*"):
+    for _item in glob.glob(self.results_path+"/*"):
       if _item.startwith("."):
         continue
       if os.isdir(os.path.join(self.results_path, _item)):
