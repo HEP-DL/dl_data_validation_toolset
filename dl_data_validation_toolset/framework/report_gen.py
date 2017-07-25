@@ -118,7 +118,7 @@ class ReportGenerator(object):
     for _item in glob.glob(self.results_path+"/*"):
       if _item.startswith("."):
         continue
-      if os.isdir(os.path.join(self.results_path, _item)):
+      if os.path.isdir(os.path.join(self.results_path, _item)):
         shutil.rmtree(os.path.join(self.results_path, _item))
       else:
         os.remove(os.path.join(self.results_path, _item))
