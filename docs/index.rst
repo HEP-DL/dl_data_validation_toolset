@@ -6,7 +6,7 @@ The DL Data Validation Toolset is a framework built around a series of tools mea
 Goal
 ====
 
-The goal of this project is to create comprehensive reports on data produced external to the deep learning framework. Reports created should contain information on the validity of using these files in Deep Learning Frameworks as well as detailed information on the contents of the files and potentially reasons as to the invalidity of the files.
+The goal of this project is to create comprehensive reports on data produced external to the deep learning framework. Reports created should contain information on the validity of using these files in Deep Learning Frameworks as well as detailed information on the contents of the files and diagnostically relevant calculations.
 
 Part of the diagnostic tools should be some visualization of the contents of the files.
 

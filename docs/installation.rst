@@ -8,6 +8,7 @@ This framework depends heavily on HDF5. Users should have the HDF5 libraries wit
 
 For instance, on Ubuntu, this can be accomplished with 
 
+.. code-block:: bash
 
   sudo apt-get install libhdf5-serial-dev
 
@@ -20,6 +21,7 @@ Installation with Pip
 
 For non-development usage, one may install with:
 
+.. code-block:: bash
 
   pip install <options> git+https://github.com/HEP-DL/dl_data_validation_toolset
 
@@ -32,6 +34,7 @@ Installation with dist-utils
 
 For development usage, one may install with:
 
+.. code-block:: bash
 
   git clone https://github.com/HEP-DL/dl_data_validation_toolset
   cd dl_data_validation_toolset
