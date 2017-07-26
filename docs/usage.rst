@@ -21,6 +21,7 @@ An example configuration YAML looks like:
 
   results_path: /home/my_user/results
   scan_paths: [/home/my_user/dl_data/, /data/]
+  tar: False
 
 Output
 ------
