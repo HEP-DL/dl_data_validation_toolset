@@ -8,6 +8,7 @@ The primary interface is the command line interface.
 
 By default, the command line utility can be called with 
 
+.. code-block:: bash
 
   generate_report
 
@@ -18,6 +19,7 @@ The library can be configured with ``YAML`` by specifying the ``--config`` flag.
 
 An example configuration YAML looks like:
 
+.. code-block:: yaml
 
   results_path: /home/my_user/results
   scan_paths: [/home/my_user/dl_data/, /data/]
@@ -36,7 +38,7 @@ Note that in order for the page to appear correctly, internet connectivity is re
 Python API
 ----------
 
-Refer to the :modules: page.
+Refer to the :doc:`modules` page.
 
 
 
