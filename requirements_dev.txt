@@ -7,7 +7,7 @@ matplotlib==2.0.2
 Pillow==4.2.1
 scipy==0.19.1
 h5py==2.7.0
-flake8==3.4.0
+flake8==3.4.1
 configparser==3.5.0
 PyYAML==3.12
 Mako==1.0.7
