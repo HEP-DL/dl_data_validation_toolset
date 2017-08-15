@@ -1,10 +1,15 @@
-import h5py
-import abc
 from dl_data_validation_toolset.framework.report import IndividualReport
 import logging
+import h5py
+import abc
 
 
 class BaseTest(object):
+  """
+    Abstract base class for tests to be run on data files.
+
+    
+  """
 
   __metaclass__ = abc.ABCMeta
   logger = logging.getLogger("test")

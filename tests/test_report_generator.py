@@ -15,7 +15,7 @@ class Test_ReportGenerator(base_unittest.BaseTestCase):
     """
       Ensures that invalid cases are handled appropriately
     """
-    my_gen = report_gen.ReportGenerator(Configuration.default())
+    my_gen = report_gen.ReportGenerator(Configuration())
     assert(os.path.isdir(my_gen.template_directory))
     index_file = os.path.join(my_gen.template_directory, 'index.mako')
     assert(os.path.isfile(index_file))

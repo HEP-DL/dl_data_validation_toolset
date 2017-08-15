@@ -1,10 +1,29 @@
-import unittest
 from mock import patch
+import unittest
 import logging
 import sys
 
 
 class BaseTestCase(unittest.TestCase):
+  """
+    Common definitions and actions for unit tests for this framework.
+
+    An example:
+
+    .. codeblock: python
+
+      from dl_data_validation_toolset.framework import BaseTestCase
+      class MyTestCase(BaseTestCase):
+        def setUp(self):
+          super().setupUp(self)
+          # Do your setup here
+        def tearDown(self):
+          # Do your teardown here
+          super().tearDown(self)
+        def test_my_function(self):
+          pass
+          # Do more of your testing here.
+  """
 
   def setUp(self):
     """
@@ -16,4 +35,7 @@ class BaseTestCase(unittest.TestCase):
     self.mock_file = self.patcher.start()
 
   def tearDown(self):
+    """
+      Releases the monkeypatch.
+    """
     self.patcher.stop()

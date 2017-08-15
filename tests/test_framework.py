@@ -9,7 +9,7 @@ from dl_data_validation_toolset.framework.report import FileReport
 
 class MyTestCase(BaseTest):
   """
-    Dummy validation tests.
+    Dummy validation tests. DO NOT ERASE.
   """
   def test_true(self):
     """
