@@ -1,5 +1,5 @@
 import logging
-
+from ..report.individual import IndividualReport
 
 class IndividualGenerator(object):
   logger = logging.getLogger("ddvt.rep_gen.ind")
@@ -8,11 +8,12 @@ class IndividualGenerator(object):
     self.test = test
 
   async def generate(self, parent):
-    result = self.test(parent.filename)
-    for test in self.test:
+    test_group = self.test(parent.filename)
+    for test in test_group._tests_:
       self.logger.info("Starting Test: {}".format(test))
       try:
-        result, status = getattr(self.test, test)()
+        result, status = getattr(test_group, test)()
+        parent.report.reports.append(IndividualReport(test, status, result))
         # TODO: Figure out what to do next
-      except Exception as e:
-        self.logger.error(e)
+      except Exception:
+        self.logger.warning("failed test")

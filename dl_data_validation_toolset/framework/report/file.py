@@ -3,13 +3,14 @@ from .base import BaseReport
 
 class FileReport(BaseReport):
 
-  def __init__(self, file):
+  def __init__(self, file, temp_dir):
     self.file = file
     # all files are valid until proven broken
     self.valid = True
     # starts with no reports
     self.reports = []
     self.images = []
+    self.temp_dir= temp_dir
 
   @property
   def filename(self):
@@ -18,6 +19,10 @@ class FileReport(BaseReport):
   @property
   def path(self):
     return os.path.dirname(self.file)
+
+  @property
+  def slug(self):
+    return self.file.split('_')[-1].strip('.h5')
 
   def render(self, directory):
     self.logger.error("Calling default report render!")

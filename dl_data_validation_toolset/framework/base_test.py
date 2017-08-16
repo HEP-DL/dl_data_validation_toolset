@@ -6,8 +6,6 @@ import abc
 class BaseTest(object):
   """
     Abstract base class for tests to be run on data files.
-
-    
   """
 
   __metaclass__ = abc.ABCMeta

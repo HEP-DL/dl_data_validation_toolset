@@ -16,7 +16,7 @@ import os
 
 
 class TopReportGenerator(object):
-  logger = logging.getLogger("topreport.gen")
+  logger = logging.getLogger("ddvt.rep_gen.top")
 
   def __init__(self):
     self.temp_dir = tempfile.mkdtemp()
@@ -27,6 +27,9 @@ class TopReportGenerator(object):
     gens = [GroupGenerator(i) for i in config.groups]
     tasks = [asyncio.ensure_future(i.generate(self)) for i in gens]
     asyncio.wait(tasks)
+    for i in tasks:
+      await i
+    self.logger.info("finished with subtasks")
     self.report = TopReport(config.name)
     self.report.groups = [i.report for i in gens]
     self.logger.info("Rendering")

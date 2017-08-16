@@ -18,6 +18,10 @@ class Group:
     self.files = [file, ]
     self.dir = base_dir
 
+  @property
+  def full_filenames(self):
+    return [os.path.join(self.dir, i) for i in self.files]
+
 
 class Configuration(object):
   """
@@ -39,10 +43,8 @@ class Configuration(object):
     with open(path, 'r') as input_file:
 
       self.data = json.load(input_file)
-      self.scan_paths = [os.path.join(os.getcwd(),
-                                      i) for i in self.data['scan_paths']]
-      self.results_path = os.path.join(os.getcwd(),
-                                       self.data['results_path'])
+      self.scan_paths = self.data['scan_paths']
+      self.results_path = self.data['results_path']
       self.results_path = os.path.abspath(self.results_path)
       self.tar = bool(self.data['tar'])
       self.logger.info("Loaded Config")
