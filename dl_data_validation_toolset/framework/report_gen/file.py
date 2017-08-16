@@ -19,7 +19,5 @@ class FileGenerator(object):
     self.temp_dir = os.path.join(parent.temp_dir, self.filename.strip(".h5"))
     self.report = FileReport(self.filename, self.temp_dir)
     file_gens = [IndividualGenerator(i) for i in BaseTest.__subclasses__()]
-    tasks = [asyncio.ensure_future(i.generate(self)) for i in file_gens]
-    asyncio.wait(tasks)
-    [await i for i in tasks]
+    await asyncio.gather(*[i.generate(self) for i in file_gens])
     self.report.render(os.path.join(parent.temp_dir, self.report.slug))

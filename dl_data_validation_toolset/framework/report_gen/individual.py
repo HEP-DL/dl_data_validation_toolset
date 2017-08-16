@@ -16,5 +16,7 @@ class IndividualGenerator(object):
         result, status = getattr(test_group, test)()
         parent.report.reports.append(IndividualReport(test, status, result))
         # TODO: Figure out what to do next
-      except Exception:
+      except Exception as e:
         self.logger.warning("failed test")
+        parent.report.reports.append(IndividualReport(test, 0,
+                                                      {'error': str(e)}))

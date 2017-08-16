@@ -18,11 +18,13 @@ class TopReportGenerator(object):
   async def execute_generate(self, config):
     if not config.tar:
       self.temp_dir = config.results_path
+
     gens = [GroupGenerator(i) for i in config.groups]
-    tasks = [asyncio.ensure_future(i.generate(self)) for i in gens]
-    asyncio.wait(tasks)
-    for i in tasks:
-      await i
+    tasks = [i.generate(self) for i in gens]
+    loop = asyncio.get_event_loop()
+    futures = [loop.call_soon_threadsafe(task) for task in tasks]
+    [await task for task in tasks]
+    [future.result() for future in futures]
     self.logger.info("finished with subtasks")
     self.report = TopReport(config.name)
     self.report.groups = [i.report for i in gens]
