@@ -31,7 +31,8 @@ class Configuration(object):
     self.scan_paths = [os.path.join(os.getcwd(), 'data')]
     self.results_path = os.path.join(os.getcwd(), 'results')
     self.groups=[]
-    self.tar = True    
+    self.tar = True  
+    self.name="DL Data Validation Report"  
 
   def configure(self, path):
     self.logger.debug("Opening file: {}".format(path))

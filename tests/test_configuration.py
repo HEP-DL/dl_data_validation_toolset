@@ -7,7 +7,7 @@ import sys
 import os
 
 
-class ConfigurationTests(base_unittest.BaseTestCase):
+class TestConfiguration(base_unittest.BaseTestCase):
   """
     Tests :code:`dl_data_validation_toolset.framework.configuration.Configuration`.
   """

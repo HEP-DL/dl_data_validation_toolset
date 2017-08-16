@@ -8,7 +8,7 @@
     <h1>File Report For: ${report.filename}</h1>
     <h3>Directory: ${report.parent} <h3>
     </div>
-  <div class='col-md-1'></div>    
+  <div class='col-md-1'></div>
 </div>
 
 <div class="row">

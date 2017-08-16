@@ -14,9 +14,12 @@ dev_reqs = [str(ir.req) for ir in parse_requirements('requirements_dev.txt',
 
 setup(
     name='dl_data_validation_toolset',
-    version='0.1.0',
-    description="Save the Kevin. Save the World.",
-    long_description="TODO: Fill in",
+    version='0.2.0',
+    description="Data unit testing for validating deep learning data sampled post-conversion.",
+    long_description="""
+    Data coming from the Kevlar framework needs to be validated post-conversion. This toolset provides
+    the necessary constructs for creating unit tests and posting the results to HTML output.
+    """,
     author="Kevin Wierman",
     author_email='kwierman@gmail.com',
     url='https://github.com/kwierman/dl_data_validation_toolset',

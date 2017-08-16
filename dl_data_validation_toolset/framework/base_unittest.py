@@ -15,7 +15,7 @@ class BaseTestCase(unittest.TestCase):
       from dl_data_validation_toolset.framework import BaseTestCase
       class MyTestCase(BaseTestCase):
         def setUp(self):
-          super().setupUp(self)
+          super().setUp(self)
           # Do your setup here
         def tearDown(self):
           # Do your teardown here
@@ -32,7 +32,7 @@ class BaseTestCase(unittest.TestCase):
     """
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
     self.patcher = patch('h5py.File')
-    self.mock_file = self.patcher.start()
+    self.patcher.start()
 
   def tearDown(self):
     """

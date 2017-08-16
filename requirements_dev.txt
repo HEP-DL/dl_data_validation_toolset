@@ -2,6 +2,7 @@ mock
 pytest-flake8
 click
 h5py
+sphinx
 sphinx_rtd_theme
 mako
 Pillow
