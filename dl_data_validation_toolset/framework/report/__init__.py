@@ -1,6 +1,7 @@
 from .base import BaseReport
 import os
 
+
 class TopReport(BaseReport):
   def __init__(self, name):
     self.name = name
@@ -9,4 +10,5 @@ class TopReport(BaseReport):
   def render(self, directory):
     with open(os.path.join(directory, 'index.html'), 'w') as index_out:
       self.logger.info("Writing Index Page")
-      index_out.write(self.index_template.render(title="DL Data Report", top_report=self))
+      index_out.write(self.index_template.render(title="DL Data Report",
+                                                 top_report=self))

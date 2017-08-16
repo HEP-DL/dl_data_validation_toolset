@@ -1,15 +1,11 @@
 from .group import GroupGenerator
 from ..report import TopReport
 
-import numpy as np
 import tempfile
 import asyncio
 import tarfile
 import logging
-import shutil
-import h5py
 import time
-import glob
 import os
 
 
@@ -43,6 +39,7 @@ class TopReportGenerator(object):
       for i in os.listdir('.'):
         tar.add(i)
       tar.close()
+      os.chdir(old_cwd)
 
   def generate(self, config):
     loop = asyncio.get_event_loop()

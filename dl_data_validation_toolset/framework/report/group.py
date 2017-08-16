@@ -1,6 +1,7 @@
 from .base import BaseReport
 import os
 
+
 class GroupReport(BaseReport):
 
   def __init__(self, name, directory):
@@ -13,7 +14,8 @@ class GroupReport(BaseReport):
       os.mkdir(directory)
     with open(os.path.join(directory, 'index.html'), 'w') as index_out:
       self.logger.info("Writing group Page for {}".format(self.name))
-      index_out.write(self.group_template.render(title=self.name,group_report=self))
+      index_out.write(self.group_template.render(title=self.name,
+                                                 group_report=self))
 
   @property
   def n_files(self):

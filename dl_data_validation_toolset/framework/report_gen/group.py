@@ -19,7 +19,8 @@ class GroupGenerator(object):
     asyncio.wait(tasks)
     for i in tasks:
       await i
-    self.logger.info("Finished with subtasks for group {}".format(self.meta.group))
+    msg = "Finished with subtasks for group {}".format(self.meta.group)
+    self.logger.info(msg)
     self.report = GroupReport(self.meta.group, self.temp_dir)
     self.report.file_reports = [i.report for i in file_gens]
     self.report.render(self.temp_dir)

@@ -2,6 +2,7 @@ import logging
 import json
 import os
 
+
 class Group:
   """
     Defines a named group of files.
@@ -25,18 +26,18 @@ class Group:
 
 class Configuration(object):
   """
-    De-serializes configuration into a useable object by other 
+    De-serializes configuration into a useable object by other
     objects.
   """
   logger = logging.getLogger('config')
 
   def __init__(self):
-    self.data={}
+    self.data = {}
     self.scan_paths = [os.path.join(os.getcwd(), 'data')]
     self.results_path = os.path.join(os.getcwd(), 'results')
-    self.groups=[]
-    self.tar = True  
-    self.name="DL Data Validation Report"  
+    self.groups = []
+    self.tar = True
+    self.name = "DL Data Validation Report"
 
   def configure(self, path):
     self.logger.debug("Opening file: {}".format(path))

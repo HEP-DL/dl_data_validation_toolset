@@ -22,5 +22,4 @@ class FileGenerator(object):
     tasks = [asyncio.ensure_future(i.generate(self)) for i in file_gens]
     asyncio.wait(tasks)
     [await i for i in tasks]
-    #self.report.files = [i.report for i in file_gens]
     self.report.render(os.path.join(parent.temp_dir, self.report.slug))

@@ -17,7 +17,7 @@ clean-pyc:
 	find . -name '__pycache__' -exec rm -fr {} +
 
 test: clean
-	pytest
+	pytest --flake8 .
 
 docs:
 	rm -f docs/dl_data_validation_toolset.rst

@@ -6,6 +6,7 @@ import h5py
 from scipy.stats import threshold
 from scipy.misc import imsave
 
+
 class FileReport(BaseReport):
   logger = logging.getLogger("ddvt.rep.file")
 
@@ -16,7 +17,7 @@ class FileReport(BaseReport):
     # starts with no reports
     self.reports = []
     self.images = []
-    self.temp_dir= temp_dir
+    self.temp_dir = temp_dir
 
   @property
   def filename(self):
@@ -33,14 +34,14 @@ class FileReport(BaseReport):
   def render(self, directory):
     if not os.path.isdir(directory):
       os.mkdir(directory)
-    # render this part of the report as an image
     self.render_image(directory)
     with open(os.path.join(directory, 'index.html'), 'w') as index_out:
       self.logger.info("Writing file Page for {}".format(self.file))
-      index_out.write(self.file_template.render(title=self.file,file_report=self))
+      index_out.write(self.file_template.render(title=self.file,
+                                                file_report=self))
 
   def render_image(self, dir):
-    input_file= h5py.File(self.file, 'r')
+    input_file = h5py.File(self.file, 'r')
     wires = input_file['image/wires']
     n = 1
     scale = 100
@@ -50,7 +51,7 @@ class FileReport(BaseReport):
     try:
       image = wires[0]
       self.logger.info("Image: min: {}, max: {}".format(np.min(image),
-                                                    np.max(image)))
+                                                        np.max(image)))
       buff = np.ndarray(shape=(image.shape[1], image.shape[2],
                                image.shape[0]),
                         dtype=np.uint8)
@@ -60,11 +61,10 @@ class FileReport(BaseReport):
       buff = threshold(buff, threshmin=thresh) + threshold(buff,
                                                            threshmax=-thresh)
       self.logger.info("Buffer: min: {}, max: {}".format(np.min(buff),
-                                                     np.max(buff)))
+                                                         np.max(buff)))
       output_file = os.path.join(dir,
                                  'wires.png')
       imsave(output_file, buff)
     except Exception as e:
       self.logger.warning("problem creating image")
       self.logger.warning(e)
-

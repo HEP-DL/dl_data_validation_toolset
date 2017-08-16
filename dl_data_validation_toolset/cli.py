@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import click
 import logging
 from dl_data_validation_toolset.framework.configuration import Configuration
 from dl_data_validation_toolset.framework.report_gen import TopReportGenerator
+
 
 @click.command()
 @click.option('--config', default=None, type=click.Path())

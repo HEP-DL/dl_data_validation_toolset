@@ -1,6 +1,7 @@
 import logging
 from ..report.individual import IndividualReport
 
+
 class IndividualGenerator(object):
   logger = logging.getLogger("ddvt.rep_gen.ind")
 
