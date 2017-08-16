@@ -1,8 +1,6 @@
 from .group import GroupGenerator
 from ..report import TopReport
 
-from scipy.stats import threshold
-from scipy.misc import imsave
 import numpy as np
 import tempfile
 import asyncio
