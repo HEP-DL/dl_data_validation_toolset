@@ -24,7 +24,7 @@ class TopReportGenerator(object):
     loop = asyncio.get_event_loop()
     futures = [loop.call_soon_threadsafe(task) for task in tasks]
     [await task for task in tasks]
-    [future.result() for future in futures]
+    #[future.result() for future in futures]
     self.logger.info("finished with subtasks")
     self.report = TopReport(config.name)
     self.report.groups = [i.report for i in gens]
