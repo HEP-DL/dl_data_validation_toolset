@@ -9,7 +9,13 @@ class IndividualGenerator(object):
     self.test = test
 
   async def generate(self, parent):
-    test_group = self.test(parent.filename)
+    test_group = None
+    try:
+      test_group = self.test(parent.filename)
+    except OSError:
+      parent.report.valid = False
+      parent.report.reports.append(IndividualReport("FileValid", 0,
+                                                    {'error': str(e)}))
     for test in test_group._tests_:
       self.logger.info("Starting Test: {}".format(test))
       try:
@@ -18,5 +24,6 @@ class IndividualGenerator(object):
         # TODO: Figure out what to do next
       except Exception as e:
         self.logger.warning("failed test")
+        parent.report.valid = False
         parent.report.reports.append(IndividualReport(test, 0,
                                                       {'error': str(e)}))
