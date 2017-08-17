@@ -12,7 +12,7 @@ class IndividualGenerator(object):
     test_group = None
     try:
       test_group = self.test(parent.filename)
-    except OSError:
+    except OSError as e:
       parent.report.valid = False
       parent.report.reports.append(IndividualReport("FileValid", 0,
                                                     {'error': str(e)}))
