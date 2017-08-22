@@ -16,6 +16,7 @@ class IndividualGenerator(object):
       parent.report.valid = False
       parent.report.reports.append(IndividualReport("FileValid", 0,
                                                     {'error': str(e)}))
+      return
     for test in test_group._tests_:
       self.logger.info("Starting Test: {}".format(test))
       try:
