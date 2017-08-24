@@ -15,9 +15,9 @@ class GroupGenerator(object):
     self.logger.info("Generating Group Report: {}".format(self.meta.group))
     self.temp_dir = os.path.join(parent.temp_dir, self.meta.group)
     file_gens = [FileGenerator(i) for i in self.meta.full_filenames]
-    
+
     await asyncio.gather(*[i.generate(self) for i in file_gens])
-    
+
     msg = "Finished with subtasks for group {}".format(self.meta.group)
     self.logger.info(msg)
     self.report = GroupReport(self.meta.group, self.temp_dir)
