@@ -1,0 +1,5 @@
+{
+  "results_path": "./results",
+  "scan_paths": ["something_dl", "something_else_dl"],
+  "tar": false
+}

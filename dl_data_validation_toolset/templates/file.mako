@@ -5,17 +5,16 @@
 <div class="row">
   <div class='col-md-1'></div>
   <div class="col-md-10">
-    <h1>File Report For: ${report.filename}</h1>
-    <h3>Directory: ${report.parent} <h3>
+    <h1>File Report For: ${file_report.filename}</h1>
     </div>
-  <div class='col-md-1'></div>    
+  <div class='col-md-1'></div>
 </div>
 
 <div class="row">
   <div class='col-md-1'></div>
   <div class="col-md-10">
   <h2>Passing: 
-%if report.valid :
+%if file_report.valid :
       <span class="label label-success"> Valid</span>
 %else:
       <span class="label label-danger"> Invalid</span>
@@ -33,7 +32,7 @@
     <tr>
     <th>Name</th><th>Passed</th><th>Fields</th>
     </tr>
-  % for result in report.reports:
+  % for result in file_report.reports:
       <tr
         %if result.status==0:
         class="danger"
@@ -71,13 +70,11 @@
     <div class="row">
       <h2>Images:</h2>
     </div>
-    %for image in report.images:
-      <div class="row img-responsive">
-        <a href="${image}">
-          <img src="${image}" class="img-responsive" alt="Image">
-        </a>
-      </div>
-    %endfor
+    <div class="row img-responsive">
+      <a href="wires.png">
+        <img src="wires.png" class="img-responsive" alt="Image">
+      </a>
+    </div>
   </div>
 </div>
 

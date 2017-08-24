@@ -6,6 +6,7 @@ clean-build:
 	rm -fr build/
 	rm -fr dist/
 	rm -fr .eggs/
+	rm -fr .cache/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 
@@ -16,7 +17,7 @@ clean-pyc:
 	find . -name '__pycache__' -exec rm -fr {} +
 
 test: clean
-	pytest
+	pytest --flake8 .
 
 docs:
 	rm -f docs/dl_data_validation_toolset.rst
