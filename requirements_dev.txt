@@ -1,6 +1,6 @@
+click==6.7
 mock==2.0.0
 pytest-flake8==0.8.1
-click
 sphinx==1.6.3
 h5py==2.7.0
 sphinx_rtd_theme==0.2.4
