@@ -6,4 +6,4 @@ h5py==2.7.0
 sphinx_rtd_theme==0.2.4
 mako
 Pillow
-scipy
+scipy==0.19.1
