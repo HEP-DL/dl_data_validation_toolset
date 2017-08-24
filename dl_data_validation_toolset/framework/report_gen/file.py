@@ -21,5 +21,4 @@ class FileGenerator(object):
     file_gens = [IndividualGenerator(i) for i in BaseTest.__subclasses__()]
 
     await asyncio.gather(*[i.generate(self) for i in file_gens])
-
     self.report.render(os.path.join(parent.temp_dir, self.report.slug))

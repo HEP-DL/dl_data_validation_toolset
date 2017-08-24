@@ -34,7 +34,8 @@ class FileReport(BaseReport):
   def render(self, directory):
     if not os.path.isdir(directory):
       os.mkdir(directory)
-    self.render_image(directory)
+    if self.valid:
+      self.render_image(directory)
     with open(os.path.join(directory, 'index.html'), 'w') as index_out:
       self.logger.info("Writing file Page for {}".format(self.file))
       index_out.write(self.file_template.render(title=self.file,
