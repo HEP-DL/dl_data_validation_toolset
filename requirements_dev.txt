@@ -1,5 +1,5 @@
 mock
-pytest-flake8
+pytest-flake8==0.8.1
 click
 h5py
 sphinx
