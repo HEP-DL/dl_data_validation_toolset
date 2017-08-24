@@ -1,9 +1,9 @@
 mock
 pytest-flake8
 click==6.7
-h5py
+h5py==2.7.0
 sphinx
-sphinx_rtd_theme
+sphinx_rtd_theme==0.2.4
 mako
 Pillow
 scipy
