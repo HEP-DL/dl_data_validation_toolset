@@ -1,7 +1,7 @@
 mock
 pytest-flake8
 click
-h5py
+h5py==2.7.0
 sphinx
 sphinx_rtd_theme
 mako
