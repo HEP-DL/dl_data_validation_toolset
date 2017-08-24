@@ -4,6 +4,6 @@ click
 h5py
 sphinx
 sphinx_rtd_theme
-mako
+mako==1.0.7
 Pillow
 scipy
