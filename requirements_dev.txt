@@ -1,6 +1,6 @@
 mock
 pytest-flake8
-click
+click==6.7
 h5py
 sphinx
 sphinx_rtd_theme
