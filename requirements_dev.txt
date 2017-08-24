@@ -6,4 +6,4 @@ sphinx
 sphinx_rtd_theme
 mako
 Pillow
-scipy
+scipy==0.19.1
