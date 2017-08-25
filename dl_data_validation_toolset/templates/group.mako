@@ -18,7 +18,7 @@
     <tr>
     <th>File Name</th><th>Link</th><th>Valid</th>
     </tr>
-  % for index, file in enumerate(group_report.file_reports):
+  % for  file in group_report.file_reports:
       <tr
         %if file.valid:
         class="success"

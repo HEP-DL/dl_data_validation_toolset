@@ -16,7 +16,7 @@ class FileGenerator(object):
   async def generate(self, parent):
     initialize()
     self.logger.info("Generating file report for {}".format(self.filename))
-    self.temp_dir = os.path.join(parent.temp_dir, self.filename.strip(".h5"))
+    self.temp_dir = os.path.join(parent.temp_dir, self.filename.split(".h5")[0])
     self.report = FileReport(self.filename, self.temp_dir)
     file_gens = [IndividualGenerator(i) for i in BaseTest.__subclasses__()]
 
