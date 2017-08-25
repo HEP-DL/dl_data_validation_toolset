@@ -29,7 +29,7 @@ class FileReport(BaseReport):
 
   @property
   def slug(self):
-    return self.file.split('_')[-1].strip('.h5')
+    return self.file.split('_')[-1].split('.h5')[0]
 
   def render(self, directory):
     if not os.path.isdir(directory):
