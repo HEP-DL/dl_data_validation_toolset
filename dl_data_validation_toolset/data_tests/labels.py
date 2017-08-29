@@ -6,6 +6,11 @@ from dl_data_validation_toolset.framework import base_test
 class LabelTests(base_test.BaseTest):
     logger = logging.getLogger('data_tests.labels')
 
+    def test_nonempty(self):
+        labels = self._file['label/type']
+        valid = len(labels) > 0
+        return {'Is Non Empty': valid}, valid
+
     def test_label_exists(self):
         labels = self._file['label/type']
         logging.debug("Labels: {}".format(labels))
