@@ -3,7 +3,7 @@ click==6.7
 mock==2.0.0
 pytest-flake8==0.8.1
 sphinx==1.6.3
-h5py==2.7.0
+h5py==2.7.1
 sphinx_rtd_theme==0.2.4
 scipy==0.19.1
 Pillow==4.2.1
