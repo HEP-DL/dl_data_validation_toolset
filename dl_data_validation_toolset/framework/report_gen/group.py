@@ -14,7 +14,8 @@ class GroupGenerator(object):
   async def generate(self, parent):
     self.logger.info("Generating Group Report: {}".format(self.meta.group))
     self.temp_dir = os.path.join(parent.temp_dir, self.meta.group)
-    os.mkdir(self.temp_dir)
+    if not os.path.exists(self.temp_dir):
+      os.mkdir(self.temp_dir)
     file_gens = [FileGenerator(i) for i in self.meta.full_filenames]
 
     await asyncio.gather(*[i.generate(self) for i in file_gens])

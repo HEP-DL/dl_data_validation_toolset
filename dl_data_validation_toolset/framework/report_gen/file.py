@@ -18,7 +18,8 @@ class FileGenerator(object):
     self.logger.info("Generating file report for {}".format(self.filename))
     self.temp_dir = os.path.join(parent.temp_dir,
                                  self.filename.split(".h5")[0])
-    os.mkdir(self.temp_dir)
+    if not os.path.exists(self.temp_dir):
+      os.mkdir(self.temp_dir)
     self.report = FileReport(self.filename, self.temp_dir)
     file_gens = [IndividualGenerator(i) for i in BaseTest.__subclasses__()]
 
