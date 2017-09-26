@@ -55,7 +55,7 @@ class FileReport(BaseReport):
                                                         np.max(image)))
       buff = np.ndarray(shape=(image.shape[1], image.shape[2],
                                image.shape[0]),
-                        dtype=np.uint8)
+                        dtype=np.float64)
       for i in range(3):
         buff[:, :, i] = image[i, :, :]
       buff = buff * scale
