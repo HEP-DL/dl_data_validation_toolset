@@ -1,6 +1,6 @@
 mako==1.0.7
 click==6.7
 h5py==2.7.1
-scipy==1.0.0
+scipy==1.0.1
 Pillow==5.0.0
 numpy==1.14.2
